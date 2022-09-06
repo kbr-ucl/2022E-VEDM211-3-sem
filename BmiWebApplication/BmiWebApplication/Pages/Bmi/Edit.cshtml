@@ -1,0 +1,20 @@
+﻿@page
+@model EditModel
+@{
+}
+<article>
+    <form method="post">
+        Højde (i meter): <input type="text" asp-for="BmiModel.Height"/>
+        Vægt (i kg): <input type="text" asp-for="BmiModel.Weigth"/>
+        
+        @*        @if (Model.BmiModel.Bmi != default)*@
+        @if (Model.BmiModel.Bmi.HasValue)
+        {
+            <p>BMI : @Model.BmiModel.Bmi</p>
+        }
+
+        <p>
+            <button>Beregn BMI</button>
+        </p>
+    </form>
+</article>
