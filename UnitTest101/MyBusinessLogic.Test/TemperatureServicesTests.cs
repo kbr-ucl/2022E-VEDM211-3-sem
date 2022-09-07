@@ -4,6 +4,7 @@ using Xunit;
 namespace MyBusinessLogic.Test
 {
     //https://hamidmosalla.com/2017/02/25/xunit-theory-working-with-inlinedata-memberdata-classdata/
+    //https://docs.educationsmediagroup.com/unit-testing-csharp/moq/quick-glance-at-moq
     public class TemperatureServicesTests
     {
         [Theory]
