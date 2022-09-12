@@ -5,6 +5,8 @@ Indeholder
 - [Validating User Input in Razor Pages](https://www.learnrazorpages.com/razor-pages/validation)
 - Unittest demo (UnitTest101)
 - SOLID-Ejendomberegner
+- IoC-Demo-01
+- IoC-Demo-02
 
 
 
@@ -19,3 +21,8 @@ Refactoreringen Indeholder sammen kode i mange steps
 - Step 3 - Unittest af "EjendomBeregnerService" er nu en let sag med et Mock objekt
 - Step 4 - Clean up af "EjendomBeregnerService" , således den ikke kender filnavnet
 - Step 5 - Brug af Moq til at lave test Mock objekter
+
+
+
+### IoC-Demo-01 og IoC-Demo-02
+
