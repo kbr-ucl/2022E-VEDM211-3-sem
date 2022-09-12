@@ -25,4 +25,35 @@ Refactoreringen Indeholder sammen kode i mange steps
 
 
 ### IoC-Demo-01 og IoC-Demo-02
+IoC Demo 01 er "klassisk" kode med en tæt kobling, hvor Service projektet kender Helper projektet. Bemærk en hårde kobling med "new" der danner en direkte dependency (new is glue).
 
+```c#
+public class MyService
+{
+    public void DoService()
+    {
+        var helper = new MyHelper();
+        helper.DoHelp();
+    }
+}
+```
+
+
+
+IoC Demo 02 viser inversion of control, hvor Service projektet IKKE kender Helper projektet. Her er det Helper projektet der kender Service projektet. Herudover er Helper objektet "injected" i Service constructoren (hvorved der opstår en aggregate)
+
+```c#
+public class MyService
+{
+    private readonly IMyHelper _helper;
+
+    public MyService(IMyHelper helper)
+    {
+        _helper = helper;
+    }
+    public void DoService()
+    {
+        _helper.DoHelp();
+    }
+}
+```
