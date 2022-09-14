@@ -7,6 +7,7 @@ Indeholder
 - SOLID-Ejendomberegner
 - IoC-Demo-01
 - IoC-Demo-02
+- Beregner-IoCdemo
 
 
 
@@ -57,3 +58,11 @@ public class MyService
     }
 }
 ```
+
+
+### Beregner-IoCdemo
+Et meget simpelt eksempel med constructor injection af en beregner sevice i en Razor Page
+
+
+### CleanDemo1
+Eksempel på en Clean Architecture struktur, hvor hver feature er placeret i sit eget "Onion"
