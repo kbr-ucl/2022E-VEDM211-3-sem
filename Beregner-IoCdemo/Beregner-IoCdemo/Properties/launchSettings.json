@@ -8,7 +8,7 @@
     }
   },
   "profiles": {
-    "IoCdemo1": {
+    "Beregner-IoCdemo": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
