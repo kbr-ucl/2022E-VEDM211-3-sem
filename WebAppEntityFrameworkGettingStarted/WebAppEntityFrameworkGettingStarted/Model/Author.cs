@@ -6,5 +6,5 @@ public class Author
     public string Name { get; set; }
     public string WebUrl { get; set; }
 
-    public ICollection<Book> Books { get; set; }
+    public ICollection<Book> Books { get; set; } = new List<Book>();
 }

@@ -1,7 +1,14 @@
+using System.Configuration;
+using Microsoft.EntityFrameworkCore;
+using WebAppEntityFrameworkGettingStarted.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+
+builder.Services.AddDbContext<BookStoreContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("BookStoreConnection")));
 
 var app = builder.Build();
 
