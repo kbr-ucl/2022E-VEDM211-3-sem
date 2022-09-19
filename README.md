@@ -8,6 +8,7 @@ Indeholder
 - IoC-Demo-01
 - IoC-Demo-02
 - Beregner-IoCdemo
+- WebAppEntityFrameworkGettingStarted
 
 
 
@@ -66,3 +67,14 @@ Et meget simpelt eksempel med constructor injection af en beregner sevice i en R
 
 ### CleanDemo1
 Eksempel på en Clean Architecture struktur, hvor hver feature er placeret i sit eget "Onion"
+
+### WebAppEntityFrameworkGettingStarted
+Et simpelt eksempel på Razor Pages sammen med Entityframework.
+Datamodellen er: 
+
+
+|Author | (1..0)  ------ (*) | Book |
+|------------|                         |---------|
+
+
+
