@@ -1,4 +1,6 @@
-﻿namespace WebAppEntityFrameworkGettingStarted.Model;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace WebAppEntityFrameworkGettingStarted.Model;
 
 public class Author
 {
@@ -6,5 +8,8 @@ public class Author
     public string Name { get; set; }
     public string WebUrl { get; set; }
 
-    public ICollection<Book> Books { get; set; } = new List<Book>();
+    [Timestamp]
+    public byte[] RowVersion { get; set; }
+
+    public ICollection<Book> Books { get; set; }
 }
