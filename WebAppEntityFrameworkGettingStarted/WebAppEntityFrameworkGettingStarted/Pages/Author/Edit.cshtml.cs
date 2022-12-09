@@ -41,7 +41,8 @@ public class EditModel : PageModel
             try
             {
                 await _context.SaveChangesAsync();
-                await transaction.CommitAsync();
+                transaction.Commit();
+                //await transaction.CommitAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -51,7 +52,8 @@ public class EditModel : PageModel
             }
             catch (Exception e)
             {
-                await transaction.RollbackAsync();
+                transaction.Rollback();
+                //await transaction.RollbackAsync();
             }
         }
 
