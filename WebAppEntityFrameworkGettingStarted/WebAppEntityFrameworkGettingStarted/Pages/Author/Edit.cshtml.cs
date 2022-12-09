@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Data;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using WebAppEntityFrameworkGettingStarted.Data;
@@ -32,17 +33,26 @@ public class EditModel : PageModel
     {
         if (!ModelState.IsValid) return Page();
 
-        _context.Attach(Author).State = EntityState.Modified;
+        using (var transaction = _context.Database.BeginTransaction(IsolationLevel.Serializable))
+        {
 
-        try
-        {
-            await _context.SaveChangesAsync();
-        }
-        catch (DbUpdateConcurrencyException)
-        {
-            if (!AuthorExists(Author.AuthorId))
-                return NotFound();
-            throw;
+            _context.Attach(Author).State = EntityState.Modified;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+                await transaction.CommitAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!AuthorExists(Author.AuthorId))
+                    return NotFound();
+                throw;
+            }
+            catch (Exception e)
+            {
+                await transaction.RollbackAsync();
+            }
         }
 
         return RedirectToPage("./Index");
